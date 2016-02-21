@@ -185,7 +185,8 @@ void ofxBox2dBaseShape::setPosition(float x, float y) {
 		ofLog(OF_LOG_NOTICE, "ofxBox2dBaseShape:: - Body is NULL -");
 		return;
 	}
-	body->SetTransform(b2Vec2(b2dNum(x), b2dNum(y)), 0);
+//	body->SetTransform(b2Vec2(b2dNum(x), b2dNum(y)), 0);
+    body->SetTransform(b2Vec2(b2dNum(x), b2dNum(y)), body->GetAngle());
 	body->SetLinearVelocity(b2Vec2(0, 0)); // maybe bring this back...
 	body->SetAwake(true); // this sounds backwards but that is what the doc says todo...
 }

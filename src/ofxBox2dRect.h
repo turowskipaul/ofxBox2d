@@ -9,7 +9,8 @@
 
 class ofxBox2dRect : public ofxBox2dBaseShape {
 
-private:
+//private:
+protected:
     float width, height;
     
 public:

@@ -22,6 +22,7 @@ public:
 	
 	b2Fixture * a;
 	b2Fixture * b;
+    b2WorldManifold * manifold;
 };
 
 class ofxBox2d : public b2ContactListener {
@@ -32,12 +33,15 @@ private:
 	float				fps;
 	int					velocityIterations;
 	int					positionIterations;
+    b2WorldManifold     worldManifold;
 	
 	// Called when two fixtures begin to touch.
 	void BeginContact(b2Contact* contact) { 
 		static ofxBox2dContactArgs args;
 		args.a = contact->GetFixtureA();
 		args.b = contact->GetFixtureB();
+        contact->GetWorldManifold(&worldManifold);
+        args.manifold = &worldManifold;
 		ofNotifyEvent( contactStartEvents, args, this);
 	}
 	
@@ -46,6 +50,8 @@ private:
 		static ofxBox2dContactArgs args;
 		args.a = contact->GetFixtureA();
 		args.b = contact->GetFixtureB();
+        contact->GetWorldManifold(&worldManifold);
+        args.manifold = &worldManifold;
 		ofNotifyEvent( contactEndEvents, args, this);
 	}
 	

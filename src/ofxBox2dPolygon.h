@@ -6,8 +6,9 @@
 
 class ofxBox2dPolygon : public ofxBox2dBaseShape, public ofPolyline {
 
-private:
-	
+//private:
+protected:
+    
 	bool	bIsSimplified;
 	bool    bIsTriangulated;
 	float   area;

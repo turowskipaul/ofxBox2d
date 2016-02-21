@@ -5,8 +5,9 @@
 #include "ofxBox2dBaseShape.h"
 
 class ofxBox2dCircle : public ofxBox2dBaseShape {
-	
-private:
+    
+//private:
+protected:
 	
 	float radius;
 	
